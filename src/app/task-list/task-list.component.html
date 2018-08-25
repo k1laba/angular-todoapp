@@ -1,0 +1,8 @@
+<section class="main">
+  <input id="toggle-all" [(ngModel)]="toggleValue" class="toggle-all" *ngIf="(currentFilterType$ | async) !== 'completed'"
+  (change)="toggleAll()" [attr.checked]="toggleValue" type="checkbox">
+  <label for="toggle-all" *ngIf="(currentFilterType$ | async) !== 'completed'">Mark all as complete</label>
+  <ul class="todo-list">
+    <app-task-item *ngFor="let task of tasks$ | async" [task]="task"></app-task-item>
+  </ul>
+</section>

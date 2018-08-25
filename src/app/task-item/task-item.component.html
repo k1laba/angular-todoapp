@@ -1,0 +1,8 @@
+<li [ngClass]="{'completed':task.isCompleted, 'editing': mode === 'edit'}">
+  <div class="view">
+    <input class="toggle" type="checkbox" (click)="toggle(task)" [attr.checked]="task.isCompleted ? 'checked' : null">
+    <label (dblclick)="mode = 'edit'">{{task.name}}</label>
+    <button (click)="remove(task)" class="destroy"></button>
+  </div>
+  <input class="edit" #newValue (keydown.enter)="save(newValue.value, task)" value="{{task.name}}">
+</li>
